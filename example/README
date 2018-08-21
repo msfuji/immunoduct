@@ -1,1 +1,1 @@
-LUAD_n10.gct: mRNA expression (FPKM-UQ) of 10 tumor samples from TCGA-LUAD.
+LUAD_n10.gct.gz: mRNA expression (FPKM-UQ) of 10 tumor samples from TCGA-LUAD. Decompress before use.
