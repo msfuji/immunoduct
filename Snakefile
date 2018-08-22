@@ -20,7 +20,7 @@ rule cyt:
     input:
         "input/expression.gct"
     output:
-        "signature/cyt.gct"
+        "signature/cyt.gct",
         dir="signature/"
     log:
         "log/cyt/"
