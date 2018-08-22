@@ -32,7 +32,7 @@ rule merge_output:
     input:
         cyt="signature/cyt.gct"
     output:
-        file="output/immunoduct.gct"
+        file="output/immunoduct.gct",
         dir="output/"
     log:
         "log/merge_output/"
