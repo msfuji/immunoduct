@@ -6,3 +6,9 @@
 # Multiple files can be listed.
 expression:
   - example/LUAD_n10.gct
+
+# gene sets for ssGSEA
+gene_set:
+  - data/h.all.v6.2.symbols.gmt
+  - data/Bindea2013.gmt
+  - data/Charoentong2017.gmt

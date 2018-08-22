@@ -1,1 +1,5 @@
-LUAD_n10.gct.gz: mRNA expression (FPKM-UQ) of 10 tumor samples from TCGA-LUAD. Decompress before use.
+gene_of_interest.txt: A list of gene symbols. Raw expression levels of these
+  genes are included in the final output.
+  
+LUAD_n10.gct.gz: mRNA expression (FPKM-UQ) of 10 tumor samples from TCGA-LUAD.
+  Decompress before use.
