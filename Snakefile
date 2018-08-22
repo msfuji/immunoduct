@@ -20,12 +20,12 @@ rule cyt:
     input:
         "input/expression.gct"
     output:
-        "signature/cyt.gct",
+        file="signature/cyt.gct",
         dir="signature/"
     log:
         "log/cyt/"
     shell:
-        bin_dir+"Rscript scripts/cyt.R {input} {output.dir}"
+        bin_dir+"Rscript scripts/cyt.R {input} {output.file}"
 
 ################################################################################
 rule merge_output:
