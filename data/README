@@ -2,6 +2,8 @@ h.all.v6.2.symbols.gmt: Hallmark gene sets of the Molecular Signatures Database
   (MSigDB) v6.2. Distributed under Creative Commons Attribution 4.0
   International License (https://creativecommons.org/licenses/by/4.0/).
 
-Bindea2013.gmt:
+Bindea2013.gmt: Signature genes for 25 immune cell types from Bindea et al,
+  Immunity, 2013.
 
-Charoentong2017.gmt:
+Charoentong2017.gmt: Signature genes for 28 immune cell types from Charoentong
+  et al, Cell Reports, 2017.
