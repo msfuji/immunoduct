@@ -1,0 +1,11 @@
+name: riboduct
+channels:
+#  - r
+#  - bioconda
+dependencies:
+#  - snakemake=3.13.3
+#  - r=3.3.1
+#  - r-dplyr=0.5.0
+#  - r-data.table=1.10.0
+#  - r-readr=0.2.2
+#  - pandas
