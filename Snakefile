@@ -9,12 +9,12 @@ rule merge_input:
     input:
         config["expression"]
     output:
-        "input/expression.gct",
+        file="input/expression.gct",
         dir="input/"
     log:
         "log/merge_input/"
     shell:
-        bin_dir+"Rscript scripts/merge_input.R {output.dir} {input}"
+        bin_dir+"Rscript scripts/merge_gct.R col {output.file} {input}"
 
 rule cyt:
     input:
@@ -32,9 +32,9 @@ rule merge_output:
     input:
         cyt="signature/cyt.gct"
     output:
-        "output/immunoduct.gct"
+        file="output/immunoduct.gct"
         dir="output/"
     log:
         "log/merge_output/"
     shell:
-        bin_dir+"Rscript scripts/merge_output.R {output.dir} {input}"
+        bin_dir+"Rscript scripts/merge_gct.R row {output.file} {input}"
