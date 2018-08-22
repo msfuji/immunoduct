@@ -12,3 +12,6 @@ gene_set:
   - data/h.all.v6.2.symbols.gmt
   - data/Bindea2013.gmt
   - data/Charoentong2017.gmt
+
+# gene of interest. Their expression levels are included in the output.
+goi: example/gene_of_interest.txt

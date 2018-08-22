@@ -4,7 +4,6 @@ rule all:
     input:
         "output/immunoduct.gct"
 
-################################################################################
 rule merge_input:
     input:
         config["expression"]
@@ -15,6 +14,7 @@ rule merge_input:
         "log/merge_input/"
     shell:
         bin_dir+"Rscript scripts/merge_gct.R col {output.file} {input}"
+################################################################################
 
 rule cyt:
     input:
@@ -27,10 +27,23 @@ rule cyt:
     shell:
         bin_dir+"Rscript scripts/cyt.R {input} {output.file}"
 
+rule goi:
+    input:
+        expr="input/expression.gct",
+        name=config["goi"]
+    output:
+        file="goi/goi.gct",
+        dir="goi"
+    log:
+        "log/goi/"
+    shell:
+        bin_dir+"Rscript scripts/filter_gct.R {input.expr} {input.name} {output.file}"
+
 ################################################################################
 rule merge_output:
     input:
-        cyt="signature/cyt.gct"
+        "signature/cyt.gct",
+        "goi/goi.gct"
     output:
         file="output/immunoduct.gct",
         dir="output/"
