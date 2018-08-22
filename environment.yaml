@@ -9,4 +9,6 @@ dependencies:
   - r-data.table #=1.10.4
   - r-readr #=1.1.1
   - bioconductor-gsva #=1.26.0
+  - r-rcurl
+  - r-bit64
 #  - pandas
