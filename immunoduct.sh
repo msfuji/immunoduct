@@ -8,10 +8,9 @@ config_yaml=$2
 #
 if [ $command = "install" ]; then
   echo "Installing immunoduct..."
-#  conda config --add channels r
-#  conda config --add channels defaults
-#  conda config --add channels conda-forge
-#  conda config --add channels bioconda
+  conda config --add channels r
+  conda config --add channels defaults
+  conda config --add channels bioconda
   conda env create --name immunoduct --file environment.yaml
   echo "DONE."
   exit 0
