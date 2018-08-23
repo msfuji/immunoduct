@@ -11,4 +11,5 @@ dependencies:
   - bioconductor-gsva #=1.26.0
   - r-rcurl
   - r-bit64
+  - jupyter
 #  - pandas
