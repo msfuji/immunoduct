@@ -68,7 +68,8 @@ rule ssgsea:
 rule merge_output:
     input:
         "signature/cyt.gct",
-        "goi/goi.gct"
+        "goi/goi.gct",
+        "signature/ssgsea.gct"
     output:
         file="output/immunoduct.gct",
         dir="output/"
