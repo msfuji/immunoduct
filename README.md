@@ -21,6 +21,21 @@ bash immunoduct.sh install
 conda deactivate
 ```
 
+### 3. Install additional software
+```
+conda activate immunoduct
+
+# install clustergrammer
+pip install clustergrammer_widget
+jupyter nbextension enable --py --sys-prefix widgetsnbextension
+jupyter nbextension enable --py --sys-prefix clustergrammer_widget
+
+# install ESTIMATE
+Rscript scripts/install_r_packages.R
+conda deactivate
+
+```
+
 ## Usage
 Make a local copy of pipeline for each project.
 ```
