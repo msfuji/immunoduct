@@ -2,7 +2,8 @@ bin_dir=config["env_dir"]+"/bin/"
 
 rule all:
     input:
-        "output/immunoduct.gct"
+        "output/immunoduct.gct",
+        "cluster/cluster.txt"
 
 rule merge_input:
     input:
