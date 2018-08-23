@@ -14,6 +14,18 @@ rule merge_input:
         "log/merge_input/"
     shell:
         bin_dir+"Rscript scripts/merge_gct.R col {output.file} {input}"
+
+rule merge_gene_sets:
+    input:
+        config["gene_set"]
+    output:
+        file="input/gene_sets.gmt"
+        dir="input/"
+    log:
+        "log/merge_gene_sets/"
+    shell:
+        "cat {input} > {output.file}"
+
 ################################################################################
 
 rule cyt:
@@ -38,6 +50,19 @@ rule goi:
         "log/goi/"
     shell:
         bin_dir+"Rscript scripts/filter_gct.R {input.expr} {input.name} {output.file}"
+
+rule ssgsea:
+    input:
+        expr="input/expression.gct",
+        gmt="input/gene_sets.gmt"
+    output:
+        file="signature/ssgsea.gct",
+        dir="signature/"
+    log:
+        "log/ssgsea/"
+    threads: 8
+    shell:
+        bin_dir+"Rscript scripts/ssgsea.R {threads} {input.expr} {input.gmt} {output.file}"
 
 ################################################################################
 rule merge_output:
