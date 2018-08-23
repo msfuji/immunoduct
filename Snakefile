@@ -78,7 +78,7 @@ rule merge_output:
     shell:
         bin_dir+"Rscript scripts/merge_gct.R row {output.file} {input}"
 
-rule cluster_input:
+rule make_cluster_input:
     input:
         imm="output/immunoduct.gct",
         ann=config["annotation"]
@@ -86,5 +86,6 @@ rule cluster_input:
         file="cluster/cluster.txt"
         dir="cluster/"
     log:
-        "log/cluster_input"
-    shell:
+        "log/make_cluster_input"
+    script:
+        "scripts/make_cluster_input.py"

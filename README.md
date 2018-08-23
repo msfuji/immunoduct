@@ -31,7 +31,7 @@ jupyter nbextension enable --py --sys-prefix widgetsnbextension
 jupyter nbextension enable --py --sys-prefix clustergrammer_widget
 
 # install ESTIMATE, MCPcounter, xCELL, EPIC
-Rscript scripts/install_r_packages.
+Rscript scripts/install_r_packages.R
 
 conda deactivate
 ```
