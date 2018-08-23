@@ -7,7 +7,7 @@ Pipeline for tumor immunology. Input should be GCT files made by `riboduct`.
 ```
 wget https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh
 bash Anaconda3-5.2.0-Linux-x86_64.sh
-echo ". ${HOME}/miniconda3/etc/profile.d/conda.sh" >> ~/.bashrc
+echo ". ${HOME}/anaconda3/etc/profile.d/conda.sh" >> ~/.bashrc
 source ~/.bashrc
 ```
 
