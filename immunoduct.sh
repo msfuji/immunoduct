@@ -14,6 +14,8 @@ if [ $command = "install" ]; then
   conda env create --name immunoduct --file environment.yaml
   echo "DONE."
   exit 0
+elif [ $command = "view" ]; then
+  jupyter notebook cluster/cluster.ipynb
 elif [ -z $config_yaml ]; then
   echo "[ERROR] config.yaml not specified."
   exit 1

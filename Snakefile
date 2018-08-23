@@ -77,3 +77,14 @@ rule merge_output:
         "log/merge_output/"
     shell:
         bin_dir+"Rscript scripts/merge_gct.R row {output.file} {input}"
+
+rule cluster_input:
+    input:
+        imm="output/immunoduct.gct",
+        ann=config["annotation"]
+    output:
+        file="cluster/cluster.txt"
+        dir="cluster/"
+    log:
+        "log/cluster_input"
+    shell:

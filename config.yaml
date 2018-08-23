@@ -15,3 +15,6 @@ gene_set:
 
 # gene of interest. Their expression levels are included in the output.
 goi: example/gene_of_interest.txt
+
+# sample annotations
+annotation: example/annotation.txt
