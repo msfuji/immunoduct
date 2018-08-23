@@ -19,7 +19,7 @@ rule merge_gene_sets:
     input:
         config["gene_set"]
     output:
-        file="input/gene_sets.gmt"
+        file="input/gene_sets.gmt",
         dir="input/"
     log:
         "log/merge_gene_sets/"
