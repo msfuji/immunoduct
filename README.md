@@ -22,6 +22,8 @@ conda deactivate
 ```
 
 ### 3. Install additional software
+Install `clustergrammer` for visualizatoin. Also install `ESTIMATE`, `xCell`,
+`EPIC`, and `MCPcounter` for immune profiling.
 ```
 conda activate immunoduct
 
@@ -46,5 +48,13 @@ Modify `config.yaml`. Start running the pipeline.
 ```
 conda activate immunoduct
 bash immunoduct.sh run config.yaml
+conda deactivate
+```
+The output is saved to `output/immunoduct.gct`.
+
+## Visualization
+```
+conda activate immunoduct
+bash immunoduct.sh view
 conda deactivate
 ```

@@ -83,7 +83,7 @@ rule make_cluster_input:
         imm="output/immunoduct.gct",
         ann=config["annotation"]
     output:
-        file="cluster/cluster.txt"
+        file="cluster/cluster.txt",
         dir="cluster/"
     log:
         "log/make_cluster_input"
