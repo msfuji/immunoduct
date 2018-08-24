@@ -41,7 +41,7 @@ columns=ann.apply(series_to_tuple, axis=1)
 #
 # scaling
 #
-imm = preprocessing.minmax_scale(imm, axis=1)
+imm = preprocessing.minmax_scale(imm, feature_range=(-1, 1), axis=1)
 imm = pd.DataFrame(imm, index=index, columns=columns)
 
 #
