@@ -2,15 +2,33 @@
 # Masashi Fujita  Aug. 24, 2018
 
 import pandas as pd
-from sklearn import preprocessing
+import numpy as np
+#from sklearn import preprocessing
 
 def series_to_tuple(s):
     return str(tuple(map(lambda x:"%s: %s" % x, s.items())))
 
-imm_file = snakemake.input["imm"]
-ann_file = snakemake.input["ann"]
-outfile = snakemake.output["file"]
+def scale(s):
+    min = np.min(s)
+    max = np.max(s)
+    if min > 0 and max > 10*min:
+        s = np.log10(s)
+        min = np.min(s)
+        max = np.max(s)
+    elif min == 0 and max > 100:
+        s = np.log10(s + 0.01)
+        min = np.min(s)
+        max = np.max(s)
+    s = (s - min)/ (max - min)
+    s = 2 * s -1
+    return s
 
+#imm_file = snakemake.input["imm"]
+#ann_file = snakemake.input["ann"]
+#outfile = snakemake.output["file"]
+imm_file = "immunoduct.gct"
+ann_file = "example/annotation.txt"
+outfile = "hoge.tsv"
 #
 # load GCT file of immune signatures
 #
@@ -41,8 +59,13 @@ columns=ann.apply(series_to_tuple, axis=1)
 #
 # scaling
 #
-imm = preprocessing.minmax_scale(imm, feature_range=(-1, 1), axis=1)
-imm = pd.DataFrame(imm, index=index, columns=columns)
+#imm = preprocessing.minmax_scale(imm, feature_range=(-1, 1), axis=1)
+imm = imm.apply(scale, axis=1)
+imm.index = index
+imm.columns = columns
+
+#imm = pd.DataFrame(imm, index=index, columns=columns)
+
 
 #
 # save
