@@ -2,7 +2,7 @@
 # Masashi Fujita  Aug. 24, 2018
 
 import pandas as pd
-from sklearn.preprocessing import MinMaxScaler
+from sklearn import preprocessing
 
 def series_to_tuple(s):
     return str(tuple(map(lambda x:"%s: %s" % x, s.items())))
