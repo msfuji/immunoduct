@@ -23,12 +23,10 @@ def scale(s):
     s = 2 * s -1
     return s
 
-#imm_file = snakemake.input["imm"]
-#ann_file = snakemake.input["ann"]
-#outfile = snakemake.output["file"]
-imm_file = "immunoduct.gct"
-ann_file = "example/annotation.txt"
-outfile = "hoge.tsv"
+imm_file = snakemake.input["imm"]
+ann_file = snakemake.input["ann"]
+outfile = snakemake.output["file"]
+
 #
 # load GCT file of immune signatures
 #
