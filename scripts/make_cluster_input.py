@@ -25,7 +25,7 @@ ann = pd.read_csv(ann_file, sep=None, engine='python')
 # rename index
 #
 index = imm[['Name', 'Description']].apply(series_to_tuple, axis=1)
-imm.index = index
+#imm.index = index
 imm.drop(['Name', 'Description'], axis=1, inplace=True)
 
 #
@@ -38,12 +38,13 @@ ann = ann.reindex(list(imm.columns))
 # rename columns
 #
 columns=ann.apply(series_to_tuple, axis=1)
-imm.columns=columns
+#imm.columns=columns
 
 #
 # scaling
 #
 imm = preprocessing.maxabs_scale(imm, axis=1)
+imm = pd.DataFrame(imm, index=index, columns=columns)
 
 #
 # save
