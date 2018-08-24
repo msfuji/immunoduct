@@ -2,6 +2,7 @@
 # Masashi Fujita  Aug. 24, 2018
 
 import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
 
 def series_to_tuple(s):
     return str(tuple(map(lambda x:"%s: %s" % x, s.items())))
@@ -38,6 +39,11 @@ ann = ann.reindex(list(imm.columns))
 #
 columns=ann.apply(series_to_tuple, axis=1)
 imm.columns=columns
+
+#
+# scaling
+#
+imm = preprocessing.maxabs_scale(imm, axis=1)
 
 #
 # save
