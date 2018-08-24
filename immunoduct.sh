@@ -16,6 +16,8 @@ if [ $command = "install" ]; then
   exit 0
 elif [ $command = "view" ]; then
   jupyter notebook cluster/cluster.ipynb
+  echo "DONE."
+  exit 0
 elif [ -z $config_yaml ]; then
   echo "[ERROR] config.yaml not specified."
   exit 1
