@@ -22,10 +22,9 @@ imm = pd.read_csv(imm_file, skiprows=2, sep="\t")
 ann = pd.read_csv(ann_file, sep=None, engine='python')
 
 #
-# rename index
+# make new index
 #
 index = imm[['Name', 'Description']].apply(series_to_tuple, axis=1)
-#imm.index = index
 imm.drop(['Name', 'Description'], axis=1, inplace=True)
 
 #
@@ -35,10 +34,9 @@ ann.index = ann['Sample']
 ann = ann.reindex(list(imm.columns))
 
 #
-# rename columns
+# make new columns
 #
 columns=ann.apply(series_to_tuple, axis=1)
-#imm.columns=columns
 
 #
 # scaling
