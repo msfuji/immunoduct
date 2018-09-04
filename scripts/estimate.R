@@ -41,5 +41,5 @@ estimateScore(tmpfile2, tmpfile3, platform="illumina")
 # reformat result
 #
 df <- fread(tmpfile3, skip=2)
-df <- df %>% rename(Name=NAME)
+colnames(df) <- c("Name", "Description", cols)
 df %>% write_gct(outfile)
