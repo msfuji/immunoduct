@@ -12,3 +12,5 @@ dependencies:
   - r-rcurl
   - r-bit64
   - scikit-learn
+  - r-e1071
+  - bioconductor-preprocesscore

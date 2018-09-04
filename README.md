@@ -38,6 +38,10 @@ Rscript scripts/install_r_packages.R
 conda deactivate
 ```
 
+`CIBERSORT` is not automatically installed because of its license.
+To run `CIBERSORT`, go to https://cibersort.stanford.edu/ and request R source
+code. Download `CIBERSORT.R`, `LM22.txt`, and place them in `scripts/`.
+
 ## Usage
 Make a local copy of pipeline for each project.
 ```

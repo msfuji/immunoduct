@@ -109,6 +109,17 @@ rule xcell:
     shell:
         bin_dir+"Rscript scripts/xcell.R {input} {output.file}"
 
+rule cibersort:
+    input:
+        "input/expression.gct"
+    output:
+        file="cell/cibersort.gct",
+        dir="cell/"
+    log:
+        "log/cibersort/"
+    shell:
+        bin_dir+"Rscript scripts/cibersort.R {input} {output.file}"
+
 ################################################################################
 rule merge_output:
     input:
@@ -118,7 +129,8 @@ rule merge_output:
         "signature/estimate.gct",
         "cell/epic.gct",
         "cell/mcp_counter.gct",
-        "cell/xcell.gct"
+        "cell/xcell.gct",
+        "cell/cibersort.gct"
     output:
         file="output/immunoduct.gct",
         dir="output/"
