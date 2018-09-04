@@ -22,8 +22,8 @@ df <- df %>% select(-Description) %>% group_by(Name) %>% slice(1) %>% ungroup
 # save as a matrix
 #
 cols <- colnames(df)[-1]
-cols <- paste(cols, collapse="\t")
-cat(cols, "\n", file=tmpfile1)
+colstr <- paste(cols, collapse="\t")
+cat(colstr, "\n", file=tmpfile1)
 
 df %>% write_tsv(tmpfile1, append=T, col_names=F)
 
