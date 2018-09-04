@@ -42,4 +42,4 @@ estimateScore(tmpfile2, tmpfile3, platform="illumina")
 #
 df <- fread(tmpfile3, skip=2)
 df <- df %>% rename(Name=NAME)
-df %>% write_gct(out_file)
+df %>% write_gct(outfile)
