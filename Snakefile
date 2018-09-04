@@ -93,7 +93,8 @@ rule merge_output:
         "signature/cyt.gct",
         "goi/goi.gct",
         "signature/ssgsea.gct",
-        "signature/estimate.gct"
+        "signature/estimate.gct",
+        "cell/epic.gct"
     output:
         file="output/immunoduct.gct",
         dir="output/"
