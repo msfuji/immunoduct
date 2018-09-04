@@ -89,7 +89,7 @@ rule merge_output:
     log:
         "log/merge_output/"
     shell:
-        bin_dir+"Rscript scripts/merge_gct.R row {input} {output.file}"
+        bin_dir+"Rscript scripts/merge_gct.R row {output.file} {input}"
 
 rule make_cluster_input:
     input:
