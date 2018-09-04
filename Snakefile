@@ -76,6 +76,17 @@ rule estimate:
     shell:
         bin_dir+"Rscript scripts/estimate.R {input} {output.file}"
 
+rule epic:
+    input:
+        "input/expression.gct"
+    output:
+        file="cell/epic.gct",
+        dir="cell/"
+    log:
+        "log/epic/"
+    shell:
+        bin_dir+"Rscript scripts/epic.R {input} {output.file}"
+
 ################################################################################
 rule merge_output:
     input:
