@@ -87,6 +87,17 @@ rule epic:
     shell:
         bin_dir+"Rscript scripts/epic.R {input} {output.file}"
 
+rule mcp_counter:
+    input:
+        "input/expression.gct"
+    output:
+        file="cell/mcp_counter.gct",
+        dir="cell/"
+    log:
+        "log/mcp_counter/"
+    shell:
+        bin_dir+"Rscript scripts/mcp_counter.R {input} {output.file}"
+
 ################################################################################
 rule merge_output:
     input:
@@ -94,7 +105,8 @@ rule merge_output:
         "goi/goi.gct",
         "signature/ssgsea.gct",
         "signature/estimate.gct",
-        "cell/epic.gct"
+        "cell/epic.gct",
+        "cell/mcp_counter.gct"
     output:
         file="output/immunoduct.gct",
         dir="output/"
