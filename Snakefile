@@ -65,19 +65,31 @@ rule ssgsea:
     shell:
         bin_dir+"Rscript scripts/ssgsea.R {threads} {input.expr} {input.gmt} {output.file}"
 
+rule estimate:
+    input:
+        "input/expression.gct"
+    output:
+        file="signature/estimate.gct",
+        dir="signature/"
+    log:
+        "log/estimate/"
+    shell:
+        bin_dir+"Rscript scripts/estimate.R {input} {output.file}"
+
 ################################################################################
 rule merge_output:
     input:
         "signature/cyt.gct",
         "goi/goi.gct",
-        "signature/ssgsea.gct"
+        "signature/ssgsea.gct",
+        "signature/estimate.gct"
     output:
         file="output/immunoduct.gct",
         dir="output/"
     log:
         "log/merge_output/"
     shell:
-        bin_dir+"Rscript scripts/merge_gct.R row {output.file} {input}"
+        bin_dir+"Rscript scripts/merge_gct.R row {input} {output.file} "
 
 rule make_cluster_input:
     input:
