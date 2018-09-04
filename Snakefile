@@ -98,6 +98,17 @@ rule mcp_counter:
     shell:
         bin_dir+"Rscript scripts/mcp_counter.R {input} {output.file}"
 
+rule xcell:
+    input:
+        "input/expression.gct"
+    output:
+        file="cell/xcell.gct",
+        dir="cell/"
+    log:
+        "log/xcell/"
+    shell:
+        bin_dir+"Rscript scripts/xcell.R {input} {output.file}"
+
 ################################################################################
 rule merge_output:
     input:
@@ -106,7 +117,8 @@ rule merge_output:
         "signature/ssgsea.gct",
         "signature/estimate.gct",
         "cell/epic.gct",
-        "cell/mcp_counter.gct"
+        "cell/mcp_counter.gct",
+        "cell/xcell.gct"
     output:
         file="output/immunoduct.gct",
         dir="output/"
