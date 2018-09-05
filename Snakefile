@@ -131,6 +131,17 @@ rule impres:
     shell:
         bin_dir+"Rscript scripts/impres.R {input} {output.file}"
 
+rule ifng:
+    input:
+        "input/expression.gct"
+    output:
+        file="signature/ifng.gct",
+        dir="signature/"
+    log:
+        "log/ifng/"
+    shell:
+        bin_dir+"Rscript scripts/ifng.R {input} {output.file}"
+
 ################################################################################
 
 def input_of_merge_output(wildcards):
@@ -140,6 +151,7 @@ def input_of_merge_output(wildcards):
     "signature/ssgsea.gct",
     "signature/estimate.gct",
     "signature/impres.gct",
+    "signature/ifng.gct",
     "cell/epic.gct",
     "cell/mcp_counter.gct",
     "cell/xcell.gct",
