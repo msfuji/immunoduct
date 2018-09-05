@@ -42,4 +42,5 @@ estimateScore(tmpfile2, tmpfile3, platform="illumina")
 #
 df <- fread(tmpfile3, skip=2)
 colnames(df) <- c("Name", "Description", cols)
+df$Description <- "ESTIMATE"
 df %>% write_gct(outfile)
