@@ -122,7 +122,7 @@ rule cibersort:
 
 ################################################################################
 
-def input_of_merge_output:
+def input_of_merge_output():
     inputs=[
     "signature/cyt.gct",
     "goi/goi.gct",
