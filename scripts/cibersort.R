@@ -1,28 +1,22 @@
 source("scripts/common.R")
-library(xCell)
-
+source("scripts/CIBERSORT.R")
 
 args <- commandArgs(trailingOnly=T)
 infile <- args[1]
 outfile <- args[2]
 
 df <- read_gct(infile)
+tmpfile <- tempfile()
 
 #
-# remove redundant genes
+# save as a matrix
 #
-df <- df %>% group_by(Name) %>% slice(1) %>% ungroup
+df %>% select(-Description) %>% rename(GeneSymbol=Name) %>% write_tsv(tmpfile)
 
 #
-# convert into a matrix
+# run CIBERSORT
 #
-mat <- df %>% select(-Name, -Description) %>% as.matrix
-rownames(mat) <- df$Name
-
-#
-# run xCell
-#
-res <- xCellAnalysis(mat, parallel.sz=1)
+res <- CIBERSORT("scripts/LM22.txt", tmpfile, perm=0, QN=F, absolute=F)
 
 #
 # extract and save cell fractions

@@ -121,16 +121,29 @@ rule cibersort:
         bin_dir+"Rscript scripts/cibersort.R {input} {output.file}"
 
 ################################################################################
+
+def input_of_merge_output:
+    inputs=[
+    "signature/cyt.gct",
+    "goi/goi.gct",
+    "signature/ssgsea.gct",
+    "signature/estimate.gct",
+    "cell/epic.gct",
+    "cell/mcp_counter.gct",
+    "cell/xcell.gct"
+    ]
+
+    # check files necessary to run CIBERSORT
+    has_cibersort=os.path.exists("scripts/CIBERSORT.R")
+    has_lm22=os.path.exists("scripts/LM22.txt")
+    if has_cibersort and has_lm22:
+        inputs.append("cell/cibersort.gct")
+
+    return inputs
+
 rule merge_output:
     input:
-        "signature/cyt.gct",
-        "goi/goi.gct",
-        "signature/ssgsea.gct",
-        "signature/estimate.gct",
-        "cell/epic.gct",
-        "cell/mcp_counter.gct",
-        "cell/xcell.gct",
-        "cell/cibersort.gct"
+        input_of_merge_output
     output:
         file="output/immunoduct.gct",
         dir="output/"
