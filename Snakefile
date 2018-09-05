@@ -120,6 +120,17 @@ rule cibersort:
     shell:
         bin_dir+"Rscript scripts/cibersort.R {input} {output.file}"
 
+rule impres:
+    input:
+        "input/expression.gct"
+    output:
+        file="signature/impres.gct",
+        dir="signature/"
+    log:
+        "log/impres/"
+    shell:
+        bin_dir+"Rscript scripts/impres.R {input} {output.file}"
+
 ################################################################################
 
 def input_of_merge_output(wildcards):
@@ -128,9 +139,10 @@ def input_of_merge_output(wildcards):
     "goi/goi.gct",
     "signature/ssgsea.gct",
     "signature/estimate.gct",
+    "signature/impres.gct",
     "cell/epic.gct",
     "cell/mcp_counter.gct",
-    "cell/xcell.gct"
+    "cell/xcell.gct",
     ]
 
     # check files necessary to run CIBERSORT

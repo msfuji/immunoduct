@@ -7,11 +7,6 @@ outfile <- args[2]
 
 df <- read_gct(infile)
 
-#
-# remove redundant genes
-#
-df <- df %>% group_by(Name) %>% slice(1) %>% ungroup
-
 human_genes <- c("GZMA", "PRF1")
 mouse_genes <- c("Gzma", "Prf1")
 

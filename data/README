@@ -7,3 +7,14 @@ Bindea2013.gmt: Signature genes for 25 immune cell types from Bindea et al,
 
 Charoentong2017.gmt: Signature genes for 28 immune cell types from Charoentong
   et al, Cell Reports, 2017.
+
+MCPcounter_genes.txt: Gene data used by MCPcounter. Downloaded from
+http://raw.githubusercontent.com/ebecht/MCPcounter/master/Signatures/genes.txt
+
+IMPRES_genes.txt: Genes for computing IMPRES. By default, this file is a copy of
+IMPRES_genes.GC19.txt, where gene names are that of GENCODE version 19. Please
+alter gene names in this file if your input GCT file employs other annotation.
+
+IMPRES_genes.GC19.txt: Fifteen gene pairs extracted from Supplementary Table 2
+of Auslander et al, Nat. Med. (2018). Gene names were accommodated to GENCODE
+version 19.

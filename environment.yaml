@@ -6,6 +6,7 @@ dependencies:
   - snakemake
   - r-base
   - r-dplyr
+  - r-tidyr
   - r-data.table
   - r-readr
   - bioconductor-gsva
