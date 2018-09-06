@@ -30,7 +30,7 @@ df <- df %>% group_by(Name) %>% slice(1) %>% ungroup
 missing <- imp_genes[!(imp_genes %in% df$Name)]
 if(length(missing) > 0){
   print(missing)
-  stop("[ERROR] some IMPRES genes were not found in the input.")
+  stop("[ERROR] signature gene was not found in the input.")
 }
 
 df <- df %>% select(-Description) %>%
