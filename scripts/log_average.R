@@ -27,12 +27,12 @@ gsc <- getGmt(gmt_file)
 #
 # remove redundant genes
 #
-df <- df %>% group_by(Name) %>% slice(1) %>% ungroup
+df <- df %>% group_by(Name) %>% dplyr::slice(1) %>% ungroup
 
 #
 # make matrix
 #
-mat <- df %>% select(-Name, -Description) %>% as.matrix
+mat <- df %>% dplyr::select(-Name, -Description) %>% as.matrix
 rownames(mat) <- df$Name
 
 #
