@@ -131,16 +131,17 @@ rule impres:
     shell:
         bin_dir+"Rscript scripts/impres.R {input} {output.file}"
 
-rule ifng:
+rule log_average:
     input:
-        "input/expression.gct"
+        expr="input/expression.gct",
+        gmt="data/Ayers2017.gmt"
     output:
-        file="signature/ifng.gct",
+        file="signature/log_average.gct",
         dir="signature/"
     log:
-        "log/ifng/"
+        "log/log_average/"
     shell:
-        bin_dir+"Rscript scripts/ifng.R {input} {output.file}"
+        bin_dir+"Rscript scripts/log_average.R --qn {input.expr} {input.gmt} {output.file}"
 
 ################################################################################
 
@@ -151,7 +152,7 @@ def input_of_merge_output(wildcards):
     "signature/ssgsea.gct",
     "signature/estimate.gct",
     "signature/impres.gct",
-    "signature/ifng.gct",
+    "signature/log_average.gct",
     "cell/epic.gct",
     "cell/mcp_counter.gct",
     "cell/xcell.gct",
