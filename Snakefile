@@ -188,3 +188,4 @@ rule make_cluster_input:
         "log/make_cluster_input"
     script:
         "scripts/make_cluster_input.py"
+
