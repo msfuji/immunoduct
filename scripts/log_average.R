@@ -19,7 +19,7 @@ outfile <- args[3]
 #
 # load files
 #
-df <- read_gct(infile)
+df <- read_gct(expr_file)
 gsc <- getGmt(gmt_file)
 
 #
