@@ -1,5 +1,7 @@
 source("scripts/common.R")
 library(preprocessCore)
+library(GSEABase)
+
 
 # do quantile normalization?
 qn <- F
