@@ -106,7 +106,7 @@ rule xcell:
         dir="cell/"
     log:
         "log/xcell/"
-    threads: 8
+    threads: 4
     shell:
         bin_dir+"Rscript scripts/xcell.R {threads} {input} {output.file}"
 
