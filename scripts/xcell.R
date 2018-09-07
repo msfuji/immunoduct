@@ -3,8 +3,9 @@ library(xCell)
 
 
 args <- commandArgs(trailingOnly=T)
-infile <- args[1]
-outfile <- args[2]
+threads <- as.integer(args[1])
+infile <- args[2]
+outfile <- args[3]
 
 df <- read_gct(infile)
 
@@ -22,7 +23,7 @@ rownames(mat) <- df$Name
 #
 # run xCell
 #
-res <- xCellAnalysis(mat, parallel.sz=1)
+res <- xCellAnalysis(mat, parallel.sz=threads)
 
 #
 # extract and save cell fractions

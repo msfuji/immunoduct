@@ -106,8 +106,9 @@ rule xcell:
         dir="cell/"
     log:
         "log/xcell/"
+    threads: 8
     shell:
-        bin_dir+"Rscript scripts/xcell.R {input} {output.file}"
+        bin_dir+"Rscript scripts/xcell.R {threads} {input} {output.file}"
 
 rule cibersort:
     input:
@@ -117,6 +118,7 @@ rule cibersort:
         dir="cell/"
     log:
         "log/cibersort/"
+    threads: 3
     shell:
         bin_dir+"Rscript scripts/cibersort.R {input} {output.file}"
 
@@ -188,4 +190,3 @@ rule make_cluster_input:
         "log/make_cluster_input"
     script:
         "scripts/make_cluster_input.py"
-
