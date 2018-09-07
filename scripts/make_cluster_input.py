@@ -35,7 +35,7 @@ imm = pd.read_csv(imm_file, skiprows=2, sep="\t")
 #
 # load annotation of samples
 #
-ann = pd.read_csv(ann_file, sep=None, engine='python')
+ann = pd.read_csv(ann_file, sep="\t")
 
 #
 # make new index
