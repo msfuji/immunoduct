@@ -26,7 +26,7 @@ fi
 #
 # check config.yaml whether to use SGE
 #
-sge_jobs=`awk '$1~/^sge_jobs:/ {print $2}' config.yaml`
+sge_jobs=`awk '$1~/^sge_jobs:/ {print $2}' $config_yaml`
 if [ -z $sge_jobs ]; then
   use_sge=false
   echo "Use SGE cluster... [No]"
