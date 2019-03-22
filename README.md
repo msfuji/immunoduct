@@ -65,3 +65,4 @@ conda activate immunoduct
 bash immunoduct.sh view
 conda deactivate
 ```
+<img src="misc/TCGA_MSI_CRC.png" width="300px">
