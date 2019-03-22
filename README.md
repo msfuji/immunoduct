@@ -1,6 +1,8 @@
 # immunoduct
 Pipeline for tumor immunology. Input should be GCT files made by `riboduct`.
 
+<img src="misc/immunoduct_flowchart.png" width="300px">
+
 ## Installation
 ### 1. Install conda
 `immunoduct` requires `conda` package manager. To install `conda` for Linux,
