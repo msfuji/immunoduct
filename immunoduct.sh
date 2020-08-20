@@ -8,7 +8,7 @@ config_yaml=$2
 #
 if [ $command = "install" ]; then
   echo "Installing immunoduct..."
-  mamba create -c bioconda -c conda-forge -n immunoduct snakemake-minimal scikit-learn
+  mamba create -c bioconda -c conda-forge -n immunoduct snakemake-minimal numpy pandas
   echo "DONE."
   exit 0
 elif [ $command = "view" ]; then
