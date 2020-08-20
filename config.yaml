@@ -1,5 +1,5 @@
 # if you use SGE cluster, set the maximum number of jobs
-#sge_jobs: 10
+sge_jobs: 10
 
 # path to Rscript
 rscript_path: /usr/local/package/r/3.6.0/bin/Rscript
