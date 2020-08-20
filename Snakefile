@@ -14,7 +14,7 @@ rule merge_input:
     log:
         "log/merge_input/"
     shell:
-        bin_dir+"Rscript scripts/merge_gct.R col {output.file} {input}"
+        config["rscript_path"]+" scripts/merge_gct.R col {output.file} {input}"
 
 rule merge_gene_sets:
     input:
@@ -38,7 +38,7 @@ rule cyt:
     log:
         "log/cyt/"
     shell:
-        bin_dir+"Rscript scripts/cyt.R {input} {output.file}"
+        config["rscript_path"]+" scripts/cyt.R {input} {output.file}"
 
 rule goi:
     input:
@@ -50,7 +50,7 @@ rule goi:
     log:
         "log/goi/"
     shell:
-        bin_dir+"Rscript scripts/filter_gct.R {input.expr} {input.name} {output.file}"
+        config["rscript_path"]+" scripts/filter_gct.R {input.expr} {input.name} {output.file}"
 
 rule ssgsea:
     input:
@@ -63,7 +63,7 @@ rule ssgsea:
         "log/ssgsea/"
     threads: 8
     shell:
-        bin_dir+"Rscript scripts/ssgsea.R {threads} {input.expr} {input.gmt} {output.file}"
+        config["rscript_path"]+" scripts/ssgsea.R {threads} {input.expr} {input.gmt} {output.file}"
 
 rule estimate:
     input:
@@ -74,7 +74,7 @@ rule estimate:
     log:
         "log/estimate/"
     shell:
-        bin_dir+"Rscript scripts/estimate.R {input} {output.file}"
+        config["rscript_path"]+" scripts/estimate.R {input} {output.file}"
 
 rule epic:
     input:
@@ -85,7 +85,7 @@ rule epic:
     log:
         "log/epic/"
     shell:
-        bin_dir+"Rscript scripts/epic.R {input} {output.file}"
+        config["rscript_path"]+" scripts/epic.R {input} {output.file}"
 
 rule mcp_counter:
     input:
@@ -96,7 +96,7 @@ rule mcp_counter:
     log:
         "log/mcp_counter/"
     shell:
-        bin_dir+"Rscript scripts/mcp_counter.R {input} {output.file}"
+        config["rscript_path"]+" scripts/mcp_counter.R {input} {output.file}"
 
 rule xcell:
     input:
@@ -108,7 +108,7 @@ rule xcell:
         "log/xcell/"
     threads: 4
     shell:
-        bin_dir+"Rscript scripts/xcell.R {threads} {input} {output.file}"
+        config["rscript_path"]+" scripts/xcell.R {threads} {input} {output.file}"
 
 rule cibersort:
     input:
@@ -120,7 +120,7 @@ rule cibersort:
         "log/cibersort/"
     threads: 3
     shell:
-        bin_dir+"Rscript scripts/cibersort.R {input} {output.file}"
+        config["rscript_path"]+" scripts/cibersort.R {input} {output.file}"
 
 rule impres:
     input:
@@ -131,7 +131,7 @@ rule impres:
     log:
         "log/impres/"
     shell:
-        bin_dir+"Rscript scripts/impres.R {input} {output.file}"
+        config["rscript_path"]+" scripts/impres.R {input} {output.file}"
 
 rule log_average:
     input:
@@ -143,7 +143,7 @@ rule log_average:
     log:
         "log/log_average/"
     shell:
-        bin_dir+"Rscript scripts/log_average.R --qn {input.expr} {input.gmt} {output.file}"
+        config["rscript_path"]+" scripts/log_average.R --qn {input.expr} {input.gmt} {output.file}"
 
 ################################################################################
 
@@ -177,7 +177,7 @@ rule merge_output:
     log:
         "log/merge_output/"
     shell:
-        bin_dir+"Rscript scripts/merge_gct.R row {output.file} {input}"
+        config["rscript_path"]+" scripts/merge_gct.R row {output.file} {input}"
 
 rule make_cluster_input:
     input:

@@ -8,10 +8,7 @@ config_yaml=$2
 #
 if [ $command = "install" ]; then
   echo "Installing immunoduct..."
-  conda config --add channels r
-  conda config --add channels defaults
-  conda config --add channels bioconda
-  conda env create --name immunoduct --file environment.yaml
+  mamba create -c bioconda -c conda-forge -n immunoduct snakemake-minimal scikit-learn
   echo "DONE."
   exit 0
 elif [ $command = "view" ]; then
@@ -41,7 +38,7 @@ fi
 #
 snake_command="snakemake --config env_dir=$CONDA_PREFIX --configfile $config_yaml"
 if $use_sge; then
-  snake_command=`echo $snake_command --cluster \"qsub -cwd -pe def_slot {threads} -o {log} -e {log}\" --jobs $sge_jobs`
+  snake_command=`echo $snake_command --cluster \"qsub -terse -cwd -pe def_slot {threads} -o {log} -e {log}\" --jobs $sge_jobs`
 fi
 
 #

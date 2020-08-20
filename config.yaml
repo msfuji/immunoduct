@@ -1,6 +1,9 @@
 # if you use SGE cluster, set the maximum number of jobs
 #sge_jobs: 10
 
+# path to Rscript
+rscript_path: /usr/local/package/r/3.6.0/bin/Rscript
+
 # mRNA expression levles in GCT format.
 # The 1st column must be gene symbols.
 # Multiple files can be listed.
