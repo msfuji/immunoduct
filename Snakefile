@@ -9,8 +9,7 @@ rule merge_input:
     input:
         config["expression"]
     output:
-        file="input/expression.gct",
-        dir="input/"
+        file="input/expression.gct"
     log:
         "log/merge_input/"
     shell:
@@ -20,8 +19,7 @@ rule merge_gene_sets:
     input:
         config["gene_set"]
     output:
-        file="input/gene_sets.gmt",
-        dir="input/"
+        file="input/gene_sets.gmt"
     log:
         "log/merge_gene_sets/"
     shell:
@@ -33,8 +31,7 @@ rule cyt:
     input:
         "input/expression.gct"
     output:
-        file="signature/cyt.gct",
-        dir="signature/"
+        file="signature/cyt.gct"
     log:
         "log/cyt/"
     shell:
@@ -45,8 +42,7 @@ rule goi:
         expr="input/expression.gct",
         name=config["goi"]
     output:
-        file="goi/goi.gct",
-        dir="goi"
+        file="goi/goi.gct"
     log:
         "log/goi/"
     shell:
@@ -57,8 +53,7 @@ rule ssgsea:
         expr="input/expression.gct",
         gmt="input/gene_sets.gmt"
     output:
-        file="signature/ssgsea.gct",
-        dir="signature/"
+        file="signature/ssgsea.gct"
     log:
         "log/ssgsea/"
     threads: 8
@@ -69,8 +64,7 @@ rule estimate:
     input:
         "input/expression.gct"
     output:
-        file="signature/estimate.gct",
-        dir="signature/"
+        file="signature/estimate.gct"
     log:
         "log/estimate/"
     shell:
@@ -80,8 +74,7 @@ rule epic:
     input:
         "input/expression.gct"
     output:
-        file="cell/epic.gct",
-        dir="cell/"
+        file="cell/epic.gct"
     log:
         "log/epic/"
     shell:
@@ -91,8 +84,7 @@ rule mcp_counter:
     input:
         "input/expression.gct"
     output:
-        file="cell/mcp_counter.gct",
-        dir="cell/"
+        file="cell/mcp_counter.gct"
     log:
         "log/mcp_counter/"
     shell:
@@ -102,8 +94,7 @@ rule xcell:
     input:
         "input/expression.gct"
     output:
-        file="cell/xcell.gct",
-        dir="cell/"
+        file="cell/xcell.gct"
     log:
         "log/xcell/"
     threads: 4
@@ -114,8 +105,7 @@ rule cibersort:
     input:
         "input/expression.gct"
     output:
-        file="cell/cibersort.gct",
-        dir="cell/"
+        file="cell/cibersort.gct"
     log:
         "log/cibersort/"
     threads: 3
@@ -126,8 +116,7 @@ rule impres:
     input:
         "input/expression.gct"
     output:
-        file="signature/impres.gct",
-        dir="signature/"
+        file="signature/impres.gct"
     log:
         "log/impres/"
     shell:
@@ -138,8 +127,7 @@ rule log_average:
         expr="input/expression.gct",
         gmt="data/Ayers2017.gmt"
     output:
-        file="signature/log_average.gct",
-        dir="signature/"
+        file="signature/log_average.gct"
     log:
         "log/log_average/"
     shell:
@@ -172,8 +160,7 @@ rule merge_output:
     input:
         input_of_merge_output
     output:
-        file="output/immunoduct.gct",
-        dir="output/"
+        file="output/immunoduct.gct"
     log:
         "log/merge_output/"
     shell:
@@ -184,8 +171,7 @@ rule make_cluster_input:
         imm="output/immunoduct.gct",
         ann=config["annotation"]
     output:
-        file="cluster/cluster.txt",
-        dir="cluster/"
+        file="cluster/cluster.txt"
     log:
         "log/make_cluster_input"
     script:
