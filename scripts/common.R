@@ -6,7 +6,7 @@ library(readr)
 # function for reading GCT
 #
 read_gct <- function(filename) {
-  df <- fread(filename, skip=2, sep="\t")
+  df <- fread(filename, skip=2, sep="\t", data.table=F)
 
   # check file format
   cols <- colnames(df)
